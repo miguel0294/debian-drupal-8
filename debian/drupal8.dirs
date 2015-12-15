@@ -1,0 +1,7 @@
+etc/drupal/8/sites/default
+etc/apache2/conf-available
+var/lib/drupal8/files
+var/lib/drupal8/backups
+usr/share/doc/drupal8
+usr/share/lintian/overrides
+usr/share/drupal8/misc/ui

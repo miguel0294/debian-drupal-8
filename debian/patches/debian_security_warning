@@ -1,0 +1,32 @@
+Origin: vendor, http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=700545
+Forwarded: not-needed
+Author: Luigi Gangitano <luigi@debian.org>
+Last-Update: 2013-02-23
+Bug-Debian: http://bugs.debian.org/700545
+Description: Removes update warning for drupal core version
+ This patch removes new version checking for drupal core. Security updates
+ are provided by Debian using patches against currently frozen version (7.14).
+
+--- a/modules/update/update.compare.inc
++++ b/modules/update/update.compare.inc
+@@ -70,6 +70,8 @@
+       }
+       // Allow other modules to alter projects before fetching and comparing.
+       drupal_alter('update_projects', $projects);
++      // *** Debian specific check *** Debian provides Drupal core updates, no need to check upstream
++      unset($projects['drupal']);
+       // Cache the site's project data for at most 1 hour.
+       _update_cache_set('update_project_projects', $projects, REQUEST_TIME + 3600);
+     }
+--- a/modules/update/update.install
++++ b/modules/update/update.install
+@@ -32,7 +32,8 @@
+       module_load_include('inc', 'update', 'update.compare');
+       $data = update_calculate_project_data($available);
+       // First, populate the requirements for core:
+-      $requirements['update_core'] = _update_requirement_check($data['drupal'], 'core');
++      // *** Debian specific check *** Debian provides security updates for drupal core, no need to check online
++      // $requirements['update_core'] = _update_requirement_check($data['drupal'], 'core');
+       // We don't want to check drupal a second time.
+       unset($data['drupal']);
+       if (!empty($data)) {

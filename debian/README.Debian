@@ -1,0 +1,214 @@
+Drupal for Debian
+-----------------
+
+1.  Introduction
+2.  Manual initial database generation and configuration
+3.  Enabling access in Apache
+4.  Database population script
+5.  Deleting the Drupal database
+6.  Changes to Apache 2 configuration
+7.  Securing your portal
+8.  Set up independent "cron" maintenance jobs
+9.  Upgrading database from previous versions
+10.  Virtual hosts
+11. Additional themes and modules
+12. Privacy of session cookies
+
+A.  Customizing themes
+B.  Links for more support
+
+
+1. Introduction
+---------------
+The latest version of Drupal can always be found at
+<http://www.drupal.org>.
+
+A running database server is needed for this package to work. It
+doesn't matter whether the DBMS runs on the same machine as the
+web server. MySQL and PostgreSQL servers are supported by this package.
+
+You can change the DBMS configuration after installation by running
+
+  dpkg-reconfigure drupal8
+
+
+2. Manual initial database generation and configuration
+-------------------------------------------------------
+This is only necessary if you chose not to automatically create the
+database at installation time or if automatic creation failed.
+
+Directions on how to create a database for you drupal portal can be found
+in INSTALL.mysql.txt and INSTALL.pgsql.txt files in /usr/share/doc/drupal8.
+
+
+3. Enabling access in Apache
+----------------------------
+
+Drupal 8 is not enabled by default in Apache 2. To enable web access to the
+drupal application, simply run this command as root:
+
+  # a2enconf drupal8
+
+
+4. Database population script
+-----------------------------
+Once a database is set up and configured, drupal needs to create tables and
+insert default records into it.
+
+This can be done running the install.php script on portal web site, e.g.
+
+  http://localhost/drupal8/install.php
+
+
+4. Deleting the Drupal database
+-------------------------------
+The database may be deleted automatically on purging the package
+(debconf prompt the user asking to do it or not).
+
+If you want to purge the data stored at MySQl database manually you
+can use the following command:
+
+  mysqladmin -p drop drupal8
+
+being the user who admin MySQL.
+
+
+5. Changes to Apache 2 configuration
+------------------------------------
+
+By default, Drupal passes path arguments to itself via its dynamically
+generated URLs. This results in URLs that look like
+"http://www.example.com/?q=node/83." This can make URLs hard to read and it
+prevents some search engines from indexing the pages with these URLs
+
+You can tell Drupal to use "clean URLs", eliminating the "?q=" in internal
+URLs, simply enabling mod_rewrite in apache 2 configuration (a2enmod rewrite).
+Please note that you may need to adjust the /etc/drupal/8/htaccess
+configuration file to match your site configuration.
+
+
+6. Securing your portal
+-----------------------
+It is very good security measure to restrict access to admin.php only
+to trusted IP's and localhost (you can see an example at
+/etc/drupal/8/htaccess) As an added security measure, is a good idea to
+set up a ssl-enabled web server in your apache, and allow access to
+admin page only to ssl streams.
+
+
+7. Upgrading database from previous versions
+--------------------------------------------
+From version 4.7.4 drupal packages will be separated for each major version.
+Automatic upgrading the database will not be attempted anymore.
+
+To upgrade an existing version of drupal, install the new package and manually
+configure the database to point to the existing database, then execute the
+upstream upgrade script by pointing a web browser to
+
+  <http://$SITE/update.php>
+
+Then remove the old package.
+
+WARNING: be sure to _NOT_ remove the old package's database.
+
+
+8. Set up independent "cron" maintenance jobs
+---------------------------------------------
+
+Many Drupal modules have tasks that must be run periodically, including the
+Search module (building and updating the index used for keyword searching), the
+Aggregator module (retrieving feeds from other sites), and the System module
+(performing routine maintenance and pruning of database tables). These tasks are
+known as "cron maintenance tasks", named after the Unix/Linux "cron" utility.
+
+When you install Drupal, its built-in cron feature is enabled, which automatically
+runs the cron tasks periodically, triggered by people visiting pages of your site.
+You can configure the built-in cron feature by navigating to
+
+  Administration > Configuration > System > Cron.
+
+It is also possible to run the cron tasks independent of site visits; this is
+recommended for most sites. To do this, you will need to set up an automated process
+to visit the page cron.php on your site, which executes the cron tasks.
+
+The URL of the cron.php page requires a "cron key" to protect against unauthorized access.
+Your site's cron key is automatically generated during installation and is specific to
+your site. The full URL of the page, with the cron key, is available in the "Cron
+maintenance tasks" section of the Status report page at Administration > Reports > Status
+report.
+
+To complete setup, add the cron key from the report above to the $cron_key variable
+in site's settings.php or cronkey.php under /etc/drupal/8/sites/<SITENAME>.
+
+
+9. Virtual hosts
+----------------
+Drupal supports a setup with multiple virtual hosts. Each virtual host
+has its own configuration directory in /etc/drupal/8/sites/_virtualhost_.
+At install time the 'default' virtual host is created with the required
+settings.php configuration file.
+
+To create new virtual hosts simply duplicate the default virtual host directory
+and adjust the settings.php and dbconfig.php configuration files.
+
+This package supports running cron scripts on each virtual host, as long as you
+define the $base_url variable in the virtual host settings.php configuration
+file.
+
+
+10. Additional modules and themes
+---------------------------------
+
+Drupal looks for modules and themes in the modules/ and themes/
+subdirectories, respectively. However, it would be a bad idea to put
+additional modules and themes into those directories because they
+might be overwritten on upgrades. Instead, create links to another
+directory that won't be touched by dpkg, e.g. in the /usr/local
+hierarchy:
+
+ # mkdir -p /usr/local/share/drupal/8/modules
+ # mkdir -p /usr/local/share/drupal/8/themes
+ # ln -s /usr/local/share/drupal/8/modules /usr/share/drupal8/modules/local
+ # ln -s /usr/local/share/drupal/8/themes /usr/share/drupal8/themes/local
+
+
+11. Privacy of session cookies
+------------------------------
+
+Drupal does not set the secure flag for the session cookie in an https
+session, which can cause the cookie to be sent in http requests and make
+it easier for remote attackers to capture this cookie.
+
+If you are using drupal on an https connection you can fix this issue
+setting the session.cookie_secure PHP properties to on either in the
+global PHP configuration file or adding the following line to
+/etc/drupal/8/htaccess:
+
+  php_value session.cookie_secure 1
+
+
+A. Customizing themes
+---------------------
+To create or customize a theme for your site, I recommend to start
+with an existing theme (as exmaple), copy it to a different location
+
+  # cp -ai /etc/drupal/8/themes/example /etc/drupal/8/themes/Custom
+
+and modify this new created theme. You can now select your "Custom"
+theme in the Preferences menu from the admin interface. 
+
+You should not modify and use an included theme in the package
+directly, as your changes could be overwritten next time you upgrade
+drupal.
+
+
+B. Links for more support
+-------------------------
+* http://www.drupal.org/
+  - Drupal's project page for those willing to get involved in the
+    ongoing development
+
+* http://drupal.org/documentation/install
+  - online installation guidelines
+
+ -- Gunnar Wolf <gwolf@debian.org>, Fri, 29 Nov 2013 13:24:58 -0600

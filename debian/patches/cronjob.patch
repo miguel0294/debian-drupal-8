@@ -1,0 +1,13 @@
+Author: <khn@bluejack.ath.cx>
+Description: Disable reporting to system log every cron run
+--- a/includes/common.inc
++++ b/includes/common.inc
+@@ -5256,7 +5256,7 @@
+ 
+     // Record cron time.
+     variable_set('cron_last', REQUEST_TIME);
+-    watchdog('cron', 'Cron run completed.', array(), WATCHDOG_NOTICE);
++    #watchdog('cron', 'Cron run completed.', array(), WATCHDOG_NOTICE);
+ 
+     // Release cron lock.
+     lock_release('cron');

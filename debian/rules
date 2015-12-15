@@ -1,0 +1,29 @@
+#!/usr/bin/make -f
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+#export DH_OPTIONS=-v
+
+PACKAGE = $(shell dh_listpackages)
+DESTDIR = $(CURDIR)/debian/$(PACKAGE)
+
+%:
+	dh  $@
+
+override_dh_installdirs:
+	dh_installdirs -X.svn -XCVS
+
+override_dh_install:
+	dh_install -XCVS -X.svn
+	# fix permissions
+	find $(DESTDIR)/usr/share/drupal8 \
+	  -name '*.png' -o -name '*.jpg' | xargs chmod a-x
+	chmod +x $(DESTDIR)/usr/share/drupal8/scripts/*
+
+	install -m640 .htaccess debian/drupal8/etc/drupal/8/htaccess
+	install -m644 debian/drupal8.lintian debian/drupal8/usr/share/lintian/overrides/drupal8
+
+	ln -s ../../drupal/8/apache2.conf $(DESTDIR)/etc/apache2/conf-available/drupal8.conf
+
+override_dh_installdocs:
+	dh_installdocs -XCVS -X.svn
+

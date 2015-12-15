@@ -1,0 +1,29 @@
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Drupal
+Upstream-Contact: Dries Buytaert <dries@drupal.org>
+Source: http://drupal.org/project/drupal
+Files-Excluded:
+    misc/jquery.*
+
+Files: *
+Copyright: Copyright © 2001 - 2013 Dries Buytaert <dries@drupal.org>, James Walker <walkah@walkah.net>, Moshe Weitzman <weitzman@tejasa.com>, Charlie Lowe <cel4145@cyberdash.com>, Steven Wittens <unconed@drupal.org>, Károly Négyesi <chx@mail.tvnet.hu>, Gabor Hojtsy <goba@php.net>, Richard Archer <drupal@juggernaut.com.au>, Matt Westgate <drupal@asitis.org>, Piotr Krukowiecki <pgsql@cvbge.org>, Károly Négyesi <chx@mail.tvnet.hu>, Jeremy Andrews <jeremy@kerneltrap.com>, Károly Négyesi <chx@mail.tvnet.hu>, Hilko Bengen <bengen@debian.org>, Gerhard Killesreiter <gerhard@killesreiter.de>
+License: GPL-2
+
+Files: debian/*
+Copyright: Copyright © 2002-2014 Hugo Espuny <hec@debian.org>, Hilko Bengen <bengen@debian.org>, Luigi Gangitano <luigi@debian.org>, Gunnar Wolf <gwolf@debian.org>, and others for QA
+License: GPL-2
+
+License: GPL-2
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License.
+ .
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License with
+ the Debian GNU/Linux distribution in file /usr/share/common-licenses/GPL-2;
+ if not, write to the Free Software Foundation, Inc., 51 Franklin St, Fifth
+ Floor, Boston, MA 02110-1301, USA.
