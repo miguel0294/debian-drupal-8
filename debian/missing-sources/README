@@ -1,0 +1,7 @@
+This directory holds the sources for code included in Drupal8 which
+comes from third party repositories and is modified from their source
+state — Often by means of Javascript minification and the like. The
+main source for this is the composer.lock file, at the top source
+directory, and the build output from Lintian.
+
+Licensing details: Refer to debian/copyright.
