@@ -1,6 +1,6 @@
 drupal8 (8.0.1-1) UNRELEASED; urgency=low
 
-  * New Debian package (Closes: #xxxxxx)
+  * New Debian package (Closes: #756305)
   * Include full sources for provided, minified ckeditor; add
     corresponding lintian overrides
 
