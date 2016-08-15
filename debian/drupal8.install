@@ -1,6 +1,7 @@
 *.php			usr/share/drupal8
-includes		usr/share/drupal8
-misc			usr/share/drupal8
+*.json			usr/share/drupal8
+web.config      usr/share/drupal8
+core		    usr/share/drupal8
 modules			usr/share/drupal8
 themes			usr/share/drupal8
 robots.txt		usr/share/drupal8
