@@ -4,7 +4,7 @@ Priority: extra
 Maintainer: Gunnar Wolf <gwolf@debian.org>
 Build-Depends: debhelper (>= 7.0.50~)
 Homepage: http://www.drupal.org/
-Standards-Version: 3.9.6.0
+Standards-Version: 3.9.8.0
 Vcs-Git: git://git.debian.org/git/collab-maint/drupal8.git
 Vcs-Browser: https://alioth.debian.org/anonscm/git/collab-maint/drupal8.git
 
