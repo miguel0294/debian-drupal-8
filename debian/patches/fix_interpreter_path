@@ -1,0 +1,27 @@
+Origin: vendor
+Forwarded: not-needed
+Author: Gunnar Wolf
+Last-Update: 2015-01-05
+Description: Fixes wrong PHP interpreter path
+ Lintian reports a warning the affected script as it uses the wrong
+ path for the PHP interpreter, and one not a proper executable - Fix it.
+
+Index: drupal8/core/scripts/update-countries.sh
+===================================================================
+--- drupal8.orig/core/scripts/update-countries.sh
++++ drupal8/core/scripts/update-countries.sh
+@@ -1,4 +1,4 @@
+-#!/bin/php
++#!/usr/bin/php
+ <?php
+ 
+ /**
+Index: drupal8/core/scripts/run-tests.sh
+===================================================================
+--- drupal8.orig/core/scripts/run-tests.sh
++++ drupal8/core/scripts/run-tests.sh
+@@ -1,3 +1,4 @@
++#!/usr/bin/php
+ <?php
+ 
+ /**

@@ -4,4 +4,4 @@ drupal8 (8.0.1-1) UNRELEASED; urgency=low
   * Include full sources for provided, minified ckeditor; add
     corresponding lintian overrides
 
- -- Gunnar Wolf <gwolf@debian.org>  Fri, 15 Dec 2015 12:26:53 -0300
+ -- Gunnar Wolf <gwolf@debian.org>  Tue, 15 Dec 2015 12:26:53 -0300

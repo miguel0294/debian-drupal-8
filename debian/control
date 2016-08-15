@@ -4,14 +4,14 @@ Priority: extra
 Maintainer: Gunnar Wolf <gwolf@debian.org>
 Build-Depends: debhelper (>= 7.0.50~)
 Homepage: http://www.drupal.org/
-Standards-Version: 3.9.5.0
+Standards-Version: 3.9.6.0
 Vcs-Git: git://git.debian.org/git/collab-maint/drupal8.git
 Vcs-Browser: https://alioth.debian.org/anonscm/git/collab-maint/drupal8.git
 
 Package: drupal8
 Architecture: all
 Depends: ${misc:Depends}, apache2 | httpd, php5, php5-mysql | php5-pgsql, php5-gd, default-mta | mail-transport-agent, wwwconfig-common (>= 0.0.37), mysql-client | virtual-mysql-client | postgresql-client, dbconfig-common, curl
-Recommends: mysql-server | postgresql
+Recommends: mysql-server | postgresql, php5-cli
 Description: fully-featured content management framework
  Drupal is a dynamic web site platform which allows an individual or
  community of users to publish, manage and organize a variety of

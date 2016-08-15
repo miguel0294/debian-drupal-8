@@ -7,6 +7,6 @@ robots.txt		usr/share/drupal8
 profiles		usr/share/drupal8
 debian/etc/apache2.conf	etc/drupal/8
 debian/etc/settings.php	etc/drupal/8/sites/default
-debian/cron.sh		usr/share/drupal8/scripts
+debian/cron.sh		usr/share/drupal8/core/scripts
 debian/dbconfig.template usr/share/drupal8/templates
 debian/files.htaccess   usr/share/doc/drupal8
