@@ -1,7 +1,66 @@
 This directory holds the sources for code included in Drupal8 which
 comes from third party repositories and is modified from their source
 state — Often by means of Javascript minification and the like. The
-main source for this is the composer.lock file, at the top source
-directory, and the build output from Lintian.
+main source for this is the core/core.libraries.yml, and the build
+output from Lintian.
 
-Licensing details: Refer to debian/copyright.
+The core/core.libraries.yml file is monitored for changes by comparing
+its SHA256 to debian/missing-sources/tracking.sha256 as part of the
+package build process.
+
+Licensing details for all bundled libraries: Refer to
+debian/copyright; details on where each missing source was downloaded
+from will be listed on this file.
+
+- core/assets/vendor/farbtastic
+
+  A color picker. It is minified to misc/farbtastic/farbtastic.js
+
+  Downloaded from:
+    http://acko.net/blog/farbtastic-jquery-color-picker-plug-in/
+    http://acko.net/files/farbtastic/farbtastic12.zip
+
+  Updated versions available at:
+
+    https://github.com/mattfarina/farbtastic
+
+- core/assets/vendor/matchMedia
+  **TO DO** Test this really minifies to the output files!
+
+  test whether a CSS media type or media query applies
+
+  Downloaded from:
+    https://github.com/paulirish/matchMedia.js/blob/master/matchMedia.addListener.js
+    https://github.com/paulirish/matchMedia.js/blob/master/matchMedia.js
+
+- core/assets/vendor/modernizr
+
+  Modernizr is a JavaScript library that detects HTML5 and CSS3 features in the user’s browser
+
+  Upstream sources at:
+    https://raw.githubusercontent.com/Modernizr/Modernizr/master/modernizr.js
+
+  This particular build was generated and downloaded from:
+    https://modernizr.com/download?-details-inputtypes-touchevents-addtest-prefixes-setclasses-teststyles-dontmin
+
+- core/assets/vendor/picturefill
+
+  A responsive image polyfill.
+
+  Downloaded from:
+    https://raw.githubusercontent.com/scottjehl/picturefill/3.0.1/src/picturefill.js
+
+- core/assets/vendor/underscore
+
+  Underscore.js is a utility-belt library for JavaScript that provides
+  support for the usual functional suspects (each, map, reduce,
+  filter...) without extending any core JavaScript objects.
+
+  Downloaded from:
+
+    https://raw.githubusercontent.com/jashkenas/underscore/1.8.3/underscore.js
+
+  Underscore upstream provides the pre-minified file, which matches
+  the file provided by Drupal, at:
+
+    https://raw.githubusercontent.com/jashkenas/underscore/1.8.3/underscore-min.js

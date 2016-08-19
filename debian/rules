@@ -13,7 +13,15 @@ override_dh_installdirs:
 	dh_installdirs -X.svn -XCVS
 
 override_dh_install:
+	# Ensure the list of third-party included libraries remains
+	# consistent with what we already checked
+	SHATMP=`mktemp --tmpdir SHA_CK.XXXXX` && \
+	    sha256sum core/core.libraries.yml > $$SHATMP && \
+	    diff -q debian/missing-sources/tracking.sha256 $$SHATMP && \
+	    rm $$SHATMP
+
 	dh_install -XCVS -X.svn -X.gitignore -X.gitattributes -X.gitmodules
+
 	# Fix permissions
 	#
 	# Images should not be executable
@@ -24,6 +32,11 @@ override_dh_install:
 	find $(DESTDIR)/usr/share/drupal8/core -type f -exec chmod a-x \{\} +
 	find $(DESTDIR)/usr/share/drupal8/core/scripts -type f -name '*.php' -exec chmod a+x \{\} +
 	find $(DESTDIR)/usr/share/drupal8/core/scripts -type f -name '*.sh' -exec chmod a+x \{\} +
+
+	# There are many unneeded extra license files shipped with
+	# Drupal, identical copies of the GPL (or, in two cases, an
+	# empty file). Getting rid of them keeps Lintian happy.
+	find $(DESTDIR)/usr/share/drupal8 -name LICENSE.txt -exec rm \{\} +
 
 	install -m640 .htaccess debian/drupal8/etc/drupal/8/htaccess
 

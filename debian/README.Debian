@@ -190,7 +190,7 @@ global PHP configuration file or adding the following line to
 A. Customizing themes
 ---------------------
 To create or customize a theme for your site, I recommend to start
-with an existing theme (as exmaple), copy it to a different location
+with an existing theme (as example), copy it to a different location
 
   # cp -ai /etc/drupal/8/themes/example /etc/drupal/8/themes/Custom
 
