@@ -64,3 +64,49 @@ from will be listed on this file.
   the file provided by Drupal, at:
 
     https://raw.githubusercontent.com/jashkenas/underscore/1.8.3/underscore-min.js
+
+- core/assets/vendor/jquery.cookie
+
+  A simple, lightweight jQuery plugin for reading, writing and
+  deleting cookies.
+
+  Downloaded from:
+
+    https://raw.githubusercontent.com/carhartl/jquery-cookie/v1.4.1/jquery.cookie.js
+
+- core/assets/vendor/jquery-form
+
+  jQuery Form Plugin
+
+  Downloaded from:
+
+  https://raw.githubusercontent.com/malsup/form/3.51/jquery.form.js
+
+- core/assets/vendor/jquery-joyride
+
+  Joyride is an easy to configure jQuery site tour wizard.
+
+  Downloaded from:
+
+  https://raw.githubusercontent.com/zurb/joyride/v2.1/jquery.joyride-2.1.js
+
+- core/assets/vendor/jquery.ui
+
+  Downloaded from:
+
+  https://raw.githubusercontent.com/jquery/jquery-ui/1.11.4/
+
+  by the means of:
+
+  $ DESTDIR==debian/missing-sources/core/assets/vendor/jquery.ui
+  $ mkdir -p $DESTDIR/ui
+  $ export BASE=https://raw.githubusercontent.com/jquery/jquery-ui/1.11.4
+  $ for MIN in $(cd core/assets/vendor/jquery.ui;find * -name \*-min.js) ;do UNMIN=$(echo $MIN|sed s/-min.js$/.js/); wget $BASE/$UNMIN -O $DESTDIR/$UNMIN ;done
+
+- jquery-ui-touch-punch
+
+  Touch Event Support for jQuery UI
+
+  Downloaded from:
+
+  https://raw.githubusercontent.com/furf/jquery-ui-touch-punch/master/jquery.ui.touch-punch.js

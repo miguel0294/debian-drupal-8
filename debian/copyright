@@ -32,28 +32,32 @@ Copyright: Copyright (c) 2014 Alexander Farkas (aFarkas)
 License: GPL-2+ or MIT
 
 Files: core/assets/vendor/jquery/*
-Copyright: 
-License: 
+Copyright: Copyright jQuery Foundation and other contributors
+License: MIT
 
 Files: core/assets/vendor/jquery.cookie/*
-Copyright: 
-License: 
+Copyright: Copyright 2014 Klaus Hartl
+License: MIT
 
 Files: core/assets/vendor/jquery-form/*
-Copyright: 
-License: 
+Copyright: Copyright 2006-2013 (c) M. Alsup
+License: MIT or GPL-2
 
 Files: core/assets/vendor/jquery-joyride/*
-Copyright: 
-License: 
+Copyright: Copyright 2013, ZURB
+License: MIT
+
+Files: core/assets/vendor/jquery-once/*
+Copyright: Copyright © Rob Loach
+License: GPL-2 or MIT
 
 Files: core/assets/vendor/jquery.ui/*
-Copyright: 
-License: 
+Copyright: Copyright jQuery Foundation and other contributors
+License: MIT
 
 Files: core/assets/vendor/jquery-ui-touch-punch/*
-Copyright: 
-License: 
+Copyright: Copyright 2011-2014, Dave Furfero
+License: MIT or GPL-2
 
 Files: core/assets/vendor/matchMedia/*
 Copyright: Copyright (c) 2012 Scott Jehl
