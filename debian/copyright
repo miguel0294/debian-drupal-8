@@ -2,8 +2,6 @@ Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: Drupal
 Upstream-Contact: Dries Buytaert <dries@drupal.org>
 Source: http://drupal.org/project/drupal
-Files-Excluded:
-    misc/jquery.*
 
 Files: *
 Copyright: Copyright © 2001 - 2013 Dries Buytaert <dries@drupal.org>, James Walker <walkah@walkah.net>, Moshe Weitzman <weitzman@tejasa.com>, Charlie Lowe <cel4145@cyberdash.com>, Steven Wittens <unconed@drupal.org>, Károly Négyesi <chx@mail.tvnet.hu>, Gabor Hojtsy <goba@php.net>, Richard Archer <drupal@juggernaut.com.au>, Matt Westgate <drupal@asitis.org>, Piotr Krukowiecki <pgsql@cvbge.org>, Károly Négyesi <chx@mail.tvnet.hu>, Jeremy Andrews <jeremy@kerneltrap.com>, Károly Négyesi <chx@mail.tvnet.hu>, Hilko Bengen <bengen@debian.org>, Gerhard Killesreiter <gerhard@killesreiter.de>
