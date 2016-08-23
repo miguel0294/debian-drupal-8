@@ -12,6 +12,26 @@ Licensing details for all bundled libraries: Refer to
 debian/copyright; details on where each missing source was downloaded
 from will be listed on this file.
 
+- core/assets/vendor/classList/classList.min.js
+
+  Cross-browser element.classList
+
+  Downloaded from:
+    https://github.com/eligrey/classList.js/blob/2014-12-13/classList.js
+
+  Drupal-provided code matches with pre-minified:
+    https://github.com/eligrey/classList.js/blob/2014-12-13/classList.min.js
+
+- core/assets/vendor/domready
+
+  Lets you know when the dom is ready
+
+  Downloaded from:
+    https://github.com/ded/domready/blob/v1.0.8/ready.js
+
+  Drupal-provided code matches with pre-minified:
+    https://github.com/ded/domready/blob/v1.0.8/ready.min.js
+
 - core/assets/vendor/farbtastic
 
   A color picker. It is minified to misc/farbtastic/farbtastic.js
@@ -24,8 +44,17 @@ from will be listed on this file.
 
     https://github.com/mattfarina/farbtastic
 
+- core/assets/vendor/html5shiv
+
+  This script is the defacto way to enable use of HTML5 sectioning elements in legacy Internet Explorer.
+
+  Downloaded from:
+    https://raw.githubusercontent.com/aFarkas/html5shiv/3.7.3/dist/html5shiv.js
+
+  Drupal-provided code matches with pre-minified:
+    https://raw.githubusercontent.com/aFarkas/html5shiv/master/dist/html5shiv.min.js
+
 - core/assets/vendor/matchMedia
-  **TO DO** Test this really minifies to the output files!
 
   test whether a CSS media type or media query applies
 
