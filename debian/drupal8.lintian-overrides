@@ -1,6 +1,20 @@
-# Sources shipped in debian/missing-sources
-drupal8 binary: source-is-missing core/themes/bartik/color/preview.js line length is 319 characters (>256)
-drupal8 binary: extra-license-file usr/share/drupal8/core/assets/vendor/ckeditor/LICENSE.md
-drupal8 binary: extra-license-file usr/share/drupal8/core/assets/vendor/classList/LICENSE.md
-drupal8 binary: extra-license-file usr/share/drupal8/core/misc/icons/license.md
-drupal8 binary: extra-license-file usr/share/drupal8/core/themes/stable/images/core/icons/license.md
+# None of the folllowing scripts are actually required, they are for
+# convenience only, thus, the declared relationship is not a
+# Depends:, but a Recommends:
+#
+drupal8 binary: php-script-but-no-phpX-cli-dep usr/share/drupal8/core/scripts/db-tools.php
+drupal8 binary: php-script-but-no-phpX-cli-dep usr/share/drupal8/core/scripts/drupal.sh
+drupal8 binary: php-script-but-no-phpX-cli-dep usr/share/drupal8/core/scripts/dump-database-d6.sh
+drupal8 binary: php-script-but-no-phpX-cli-dep usr/share/drupal8/core/scripts/dump-database-d7.sh
+drupal8 binary: php-script-but-no-phpX-cli-dep usr/share/drupal8/core/scripts/dump-database-d8-mysql.php
+drupal8 binary: php-script-but-no-phpX-cli-dep usr/share/drupal8/core/scripts/generate-d6-content.sh
+drupal8 binary: php-script-but-no-phpX-cli-dep usr/share/drupal8/core/scripts/generate-d7-content.sh
+drupal8 binary: php-script-but-no-phpX-cli-dep usr/share/drupal8/core/scripts/generate-proxy-class.php
+drupal8 binary: php-script-but-no-phpX-cli-dep usr/share/drupal8/core/scripts/password-hash.sh
+drupal8 binary: php-script-but-no-phpX-cli-dep usr/share/drupal8/core/scripts/rebuild_token_calculator.sh
+drupal8 binary: php-script-but-no-phpX-cli-dep usr/share/drupal8/core/scripts/run-tests.sh
+drupal8 binary: php-script-but-no-phpX-cli-dep usr/share/drupal8/core/scripts/update-countries.sh
+# The reported file is not part of ckeditor, but the glue for Drupal
+# to use it
+#
+drupal8 binary: embedded-javascript-library usr/share/drupal8/core/modules/ckeditor/js/ckeditor.js please use ckeditor

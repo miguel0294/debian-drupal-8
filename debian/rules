@@ -35,8 +35,20 @@ override_dh_install:
 
 	# There are many unneeded extra license files shipped with
 	# Drupal, identical copies of the GPL (or, in two cases, an
-	# empty file). Getting rid of them keeps Lintian happy.
+	# empty file, and in two further cases documented in
+	# debian/copyright, the MIT license). Getting rid of them
+	# keeps Lintian happy.
 	find $(DESTDIR)/usr/share/drupal8 -name LICENSE.txt -exec rm \{\} +
+	rm $(DESTDIR)/usr/share/drupal8/core/assets/vendor/ckeditor/LICENSE.md \
+		$(DESTDIR)/usr/share/drupal8/core/assets/vendor/classList/LICENSE.md \
+		$(DESTDIR)/usr/share/drupal8/core/misc/icons/license.md \
+		$(DESTDIR)/usr/share/drupal8/core/themes/stable/images/core/icons/license.md
+
+
+	# Replace those embedded javascript libraries we can with the
+	# packaged systemwide version
+	rm -rf $(DESTDIR)/usr/share/drupal8/core/assets/vendor/ckeditor
+	ln -s ../../../../javascript/ckeditor $(DESTDIR)/usr/share/drupal8/core/assets/vendor/ckeditor
 
 	install -m640 .htaccess debian/drupal8/etc/drupal/8/htaccess
 
