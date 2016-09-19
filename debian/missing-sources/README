@@ -12,6 +12,19 @@ Licensing details for all bundled libraries: Refer to
 debian/copyright; details on where each missing source was downloaded
 from will be listed on this file.
 
+- core/assets/vendor/ckeditor
+
+  Browser-based WYSIWYG editor
+
+  Downloaded from:
+    https://github.com/ckeditor/ckeditor-dev
+
+  For space considerations, including only the relevant files. The
+  procedure for building the exact ckeditor version is explained in
+  this package's source tree, in:
+
+    core/assets/vendor/ckeditor/build-config.js
+
 - core/assets/vendor/classList/classList.min.js
 
   Cross-browser element.classList

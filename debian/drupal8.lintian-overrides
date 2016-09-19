@@ -1,0 +1,6 @@
+# Sources shipped in debian/missing-sources
+drupal8 binary: source-is-missing core/themes/bartik/color/preview.js line length is 319 characters (>256)
+drupal8 binary: extra-license-file usr/share/drupal8/core/assets/vendor/ckeditor/LICENSE.md
+drupal8 binary: extra-license-file usr/share/drupal8/core/assets/vendor/classList/LICENSE.md
+drupal8 binary: extra-license-file usr/share/drupal8/core/misc/icons/license.md
+drupal8 binary: extra-license-file usr/share/drupal8/core/themes/stable/images/core/icons/license.md

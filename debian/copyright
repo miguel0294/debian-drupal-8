@@ -7,6 +7,14 @@ Files: *
 Copyright: Copyright © 2001 - 2013 Dries Buytaert <dries@drupal.org>, James Walker <walkah@walkah.net>, Moshe Weitzman <weitzman@tejasa.com>, Charlie Lowe <cel4145@cyberdash.com>, Steven Wittens <unconed@drupal.org>, Károly Négyesi <chx@mail.tvnet.hu>, Gabor Hojtsy <goba@php.net>, Richard Archer <drupal@juggernaut.com.au>, Matt Westgate <drupal@asitis.org>, Piotr Krukowiecki <pgsql@cvbge.org>, Károly Négyesi <chx@mail.tvnet.hu>, Jeremy Andrews <jeremy@kerneltrap.com>, Károly Négyesi <chx@mail.tvnet.hu>, Hilko Bengen <bengen@debian.org>, Gerhard Killesreiter <gerhard@killesreiter.de>
 License: GPL-2
 
+Files: core/misc/icons/*
+Copyright: (c) 2013 Ryan Frederick
+License: MIT
+
+Files: core/themes/stable/images/core/icons/*
+Copyright: (c) 2013 Ryan Frederick
+License: MIT
+
 Files: core/assets/vendor/backbone/*
 Copyright: Copyright (c) 2010-2016 Jeremy Ashkenas, DocumentCloud
 License: MIT
