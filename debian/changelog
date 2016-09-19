@@ -1,4 +1,4 @@
-drupal8 (8.2.0~-1) UNRELEASED; urgency=low
+drupal8 (8.1.9-1) UNRELEASED; urgency=low
 
   * New Debian package (Closes: #756305)
   * Include full sources for provided, minified ckeditor; add
