@@ -18,3 +18,10 @@ drupal8 binary: php-script-but-no-phpX-cli-dep usr/share/drupal8/core/scripts/up
 # to use it
 #
 drupal8 binary: embedded-javascript-library usr/share/drupal8/core/modules/ckeditor/js/ckeditor.js please use ckeditor
+#
+# The versions for JQuery and JQuery-form currently (as to shortly
+# before the Stretch freeze) are too outdated to be used for Drupal8;
+# we have to use the bundled versions
+drupal8: embedded-javascript-library usr/share/drupal8/core/assets/vendor/jquery-form/jquery.form.min.js please use libjs-jquery-form
+drupal8 binary: embedded-javascript-library usr/share/drupal8/core/assets/vendor/jquery/jquery.js please use libjs-jquery
+drupal8 binary: embedded-javascript-library usr/share/drupal8/core/assets/vendor/jquery/jquery.min.js please use libjs-jquery
