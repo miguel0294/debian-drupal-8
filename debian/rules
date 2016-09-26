@@ -55,7 +55,13 @@ override_dh_install:
 
 	# Bundled PHP libraries listed in core/composer.json are
 	# shipped in vendor/; use Debian system-provided ones as much
-	# as possible
+	# as possible.
+	#
+	# We first create the $(VENDOR)/symfony (and similar)
+	# directories in case we are working from the Git tree (it is
+	# shipped only via the tar.gz distributions)
+	[ -d $(VENDOR)/symfony ] || mkdir -p $(VENDOR)/symfony
+
 	rm -rf $(VENDOR)/symfony/class-loader
 	ln -s $(SYSPHP)/Symfony/Component/ClassLoader $(VENDOR)/symfony/class-loader
 
