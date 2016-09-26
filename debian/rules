@@ -50,6 +50,9 @@ override_dh_install:
 	rm -rf $(DESTDIR)/usr/share/drupal8/core/assets/vendor/ckeditor
 	ln -s ../../../../javascript/ckeditor $(DESTDIR)/usr/share/drupal8/core/assets/vendor/ckeditor
 
+	rm -rf $(DESTDIR)/usr/share/drupal8/core/assets/vendor/jquery.cookie
+	ln -s ../../../../javascript/jquery-cookie $(DESTDIR)/usr/share/drupal8/core/assets/vendor/jquery.cookie
+
 	install -m640 .htaccess debian/drupal8/etc/drupal/8/htaccess
 
 	ln -s ../../drupal/8/apache2.conf $(DESTDIR)/etc/apache2/conf-available/drupal8.conf
