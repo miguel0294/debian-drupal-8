@@ -6,6 +6,15 @@
 PACKAGE = $(shell dh_listpackages)
 DESTDIR = $(CURDIR)/debian/$(PACKAGE)
 
+VENDOR = $(DESTDIR)/usr/share/drupal8/vendor
+COREVENDOR = $(DESTDIR)/usr/share/drupal8/core/assets/vendor
+# SYSPHP and SYSJS are at the same level (/usr/share), but they are
+# called from different levels within the Drupal sources; if vendor/
+# or core/vendor/ are to ever be moved, this is the place to update
+# (or to find a more elegant solution)
+SYSPHP = ../../../php
+SYSJS = ../../../../javascript
+
 %:
 	dh  $@
 
@@ -39,22 +48,30 @@ override_dh_install:
 	# debian/copyright, the MIT license). Getting rid of them
 	# keeps Lintian happy.
 	find $(DESTDIR)/usr/share/drupal8 -name LICENSE.txt -exec rm \{\} +
-	rm $(DESTDIR)/usr/share/drupal8/core/assets/vendor/ckeditor/LICENSE.md \
-		$(DESTDIR)/usr/share/drupal8/core/assets/vendor/classList/LICENSE.md \
+	rm $(COREVENDOR)/ckeditor/LICENSE.md \
+		$(COREVENDOR)/classList/LICENSE.md \
 		$(DESTDIR)/usr/share/drupal8/core/misc/icons/license.md \
 		$(DESTDIR)/usr/share/drupal8/core/themes/stable/images/core/icons/license.md
 
+	# Bundled PHP libraries listed in core/composer.json are
+	# shipped in vendor/; use Debian system-provided ones as much
+	# as possible
+	rm -rf $(VENDOR)/symfony/class-loader
+	ln -s $(SYSPHP)/Symfony/Component/ClassLoader $(VENDOR)/symfony/class-loader
+
+	rm -rf $(VENDOR)/symfony/console
+	ln -s $(SYSPHP)/Symfony/Component/Console $(VENDOR)/symfony/console
 
 	# Replace those embedded javascript libraries we can with the
 	# packaged systemwide version
-	rm -rf $(DESTDIR)/usr/share/drupal8/core/assets/vendor/ckeditor
-	ln -s ../../../../javascript/ckeditor $(DESTDIR)/usr/share/drupal8/core/assets/vendor/ckeditor
+	rm -rf $(COREVENDOR)/ckeditor
+	ln -s $(SYSJS)/ckeditor $(COREVENDOR)/ckeditor
 
-	rm -rf $(DESTDIR)/usr/share/drupal8/core/assets/vendor/jquery.cookie
-	ln -s ../../../../javascript/jquery-cookie $(DESTDIR)/usr/share/drupal8/core/assets/vendor/jquery.cookie
+	rm -rf $(COREVENDOR)/jquery.cookie
+	ln -s $(SYSJS)/jquery-cookie $(COREVENDOR)/jquery.cookie
 
-	rm -rf $(DESTDIR)/usr/share/drupal8/core/assets/vendor/underscore
-	ln -s ../../../../javascript/underscore $(DESTDIR)/usr/share/drupal8/core/assets/vendor/underscore
+	rm -rf $(COREVENDOR)/underscore
+	ln -s $(SYSJS)/underscore $(COREVENDOR)/underscore
 
 	install -m640 .htaccess debian/drupal8/etc/drupal/8/htaccess
 
