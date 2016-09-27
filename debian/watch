@@ -1,0 +1,4 @@
+version=3
+opts="dversionmangle=s/.dfsg$//" \
+  http://drupal.org/project/drupal .*/drupal-(\d+(?:\.\d+)*)\.(?:tgz|tar\.(?:gz|bz2|xz))
+# Bart Martens <bartm@debian.org>  Sat, 23 Feb 2013 22:22:47 +0000
