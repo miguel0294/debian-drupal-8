@@ -131,6 +131,10 @@ override_dh_install:
 	rm -rf $(VENDOR)/symfony/yaml
 	ln -s $(SYSPHP)/Symfony/Component/Yaml $(VENDOR)/symfony/yaml
 
+	# Twig Library
+	[ -d $(VENDOR)/twig ] || mkdir -p $(VENDOR)/twig/twig/lib/
+
+	ln -s $(SYSPHP)/Twig $(VENDOR)/twig/twig/lib/Twig
 	# Replace those embedded javascript libraries we can with the
 	# packaged systemwide version
 	rm -rf $(COREVENDOR)/ckeditor
