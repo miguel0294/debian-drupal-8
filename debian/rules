@@ -12,7 +12,7 @@ COREVENDOR = $(DESTDIR)/usr/share/drupal8/core/assets/vendor
 # called from different levels within the Drupal sources; if vendor/
 # or core/vendor/ are to ever be moved, this is the place to update
 # (or to find a more elegant solution)
-SYSPHP = ../../../php
+SYSPHP = /usr/share/php
 SYSJS = ../../../../javascript
 
 %:
