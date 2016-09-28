@@ -135,6 +135,28 @@ override_dh_install:
 	[ -d $(VENDOR)/twig ] || mkdir -p $(VENDOR)/twig/twig/lib/
 
 	ln -s $(SYSPHP)/Twig $(VENDOR)/twig/twig/lib/Twig
+
+	# Doctrine Libraries
+	[ -d $(VENDOR)/doctrine ] || mkdir -p $(VENDOR)/doctrine
+
+	mkdir -p $(VENDOR)/doctrine/annotations/lib/Doctrine/Common/
+	ln -s $(SYSPHP)/Doctrine/Common/Annotations $(VENDOR)/doctrine/annotations/lib/Doctrine/Common/Annotations
+
+	mkdir -p $(VENDOR)/doctrine/cache/lib/Doctrine/Common/
+	ln -s $(SYSPHP)/Doctrine/Common/Cache $(VENDOR)/doctrine/cache/lib/Doctrine/Common/Cache
+
+	mkdir -p $(VENDOR)/doctrine/collections/lib/Doctrine/Common/
+	ln -s $(SYSPHP)/Doctrine/Common/Collections $(VENDOR)/doctrine/collections/lib/Doctrine/Common/Collections
+
+	mkdir -p $(VENDOR)/doctrine/inflector/lib/Doctrine/Common/
+	ln -s $(SYSPHP)/Doctrine/Common/Inflector $(VENDOR)/doctrine/inflector/lib/Doctrine/Common/Inflector
+
+	mkdir -p $(VENDOR)/doctrine/instantiator/lib/Doctrine/Common/
+	ln -s $(SYSPHP)/Doctrine/Instantiator $(VENDOR)/doctrine/instantiator/lib/Doctrine/Common/Instantiator
+
+	mkdir -p $(VENDOR)/doctrine/lexer/lib/Doctrine/Common/
+	ln -s $(SYSPHP)/Doctrine/Common/Lexer $(VENDOR)/doctrine/lexer/lib/Doctrine/Common/Lexer
+
 	# Replace those embedded javascript libraries we can with the
 	# packaged systemwide version
 	rm -rf $(COREVENDOR)/ckeditor
@@ -152,4 +174,3 @@ override_dh_install:
 
 override_dh_installdocs:
 	dh_installdocs -XCVS -X.svn
-
