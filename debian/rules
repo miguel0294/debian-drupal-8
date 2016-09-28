@@ -68,6 +68,69 @@ override_dh_install:
 	rm -rf $(VENDOR)/symfony/console
 	ln -s $(SYSPHP)/Symfony/Component/Console $(VENDOR)/symfony/console
 
+	rm -rf $(VENDOR)/symfony/dependency-injection
+	ln -s $(SYSPHP)/Symfony/Component/DependencyInjection $(VENDOR)/symfony/dependency-injection
+
+	rm -rf $(VENDOR)/symfony/event-dispatcher
+	ln -s $(SYSPHP)/Symfony/Component/EventDispatcher $(VENDOR)/symfony/event-dispatcher
+
+	rm -rf $(VENDOR)/symfony/polyfill-mbstring
+	ln -s $(SYSPHP)/Symfony/Polyfill/Mbstring $(VENDOR)/symfony/polyfill-mbstring
+
+	rm -rf $(VENDOR)/symfony/polyfill-apcu
+	ln -s $(SYSPHP)/Symfony/Polyfill/Apcu $(VENDOR)/symfony/polyfill-apcu
+
+	rm -rf $(VENDOR)/symfony/polyfill-iconv
+	ln -s $(SYSPHP)/Symfony/Polyfill/Iconv $(VENDOR)/symfony/polyfill-iconv
+
+	rm -rf $(VENDOR)/symfony/polyfill-php54
+	ln -s $(SYSPHP)/Symfony/Polyfill/Php54 $(VENDOR)/symfony/polyfill-php54
+
+	rm -rf $(VENDOR)/symfony/polyfill-php55
+	ln -s $(SYSPHP)/Symfony/Polyfill/Php55 $(VENDOR)/symfony/polyfill-php55
+
+	rm -rf $(VENDOR)/symfony/browser-kit
+	ln -s $(SYSPHP)/Symfony/Component/BrowserKit $(VENDOR)/symfony/browser-kit
+
+	rm -rf $(VENDOR)/symfony/css-selector/
+	ln -s $(SYSPHP)/Symfony/Component/CssSelector $(VENDOR)/symfony/css-selector
+
+	rm -rf $(VENDOR)/symfony/debug
+	ln -s $(SYSPHP)/Symfony/Component/Debug $(VENDOR)/symfony/debug
+
+	rm -rf $(VENDOR)/symfony/dependency-injection
+	ln -s $(SYSPHP)/Symfony/Component/DependencyInjection $(VENDOR)/symfony/dependency-injection
+
+	rm -rf $(VENDOR)/symfony/dom-crawler
+	ln -s $(SYSPHP)/Symfony/Component/DomCrawler $(VENDOR)/symfony/dom-crawler
+
+	rm -rf $(VENDOR)/symfony/event-dispatcher
+	ln -s $(SYSPHP)/Symfony/Component/EventDispatcher $(VENDOR)/symfony/event-dispatcher
+
+	rm -rf $(VENDOR)/symfony/http-foundation
+	ln -s $(SYSPHP)/Symfony/Component/HttpFoundation $(VENDOR)/symfony/http-foundation
+
+	rm -rf $(VENDOR)/symfony/http-kernel
+	ln -s $(SYSPHP)/Symfony/Component/HttpKernel $(VENDOR)/symfony/http-kernel
+
+	rm -rf $(VENDOR)/symfony/process
+	ln -s $(SYSPHP)/Symfony/Component/Process $(VENDOR)/symfony/process
+
+	rm -rf $(VENDOR)/symfony/routing
+	ln -s $(SYSPHP)/Symfony/Component/Routing $(VENDOR)/symfony/routing
+
+	rm -rf $(VENDOR)/symfony/serializer
+	ln -s $(SYSPHP)/Symfony/Component/Serializer $(VENDOR)/symfony/serializer
+
+	rm -rf $(VENDOR)/symfony/translation
+	ln -s $(SYSPHP)/Symfony/Component/Translation $(VENDOR)/symfony/translation
+
+	rm -rf $(VENDOR)/symfony/validator
+	ln -s $(SYSPHP)/Symfony/Component/Validator $(VENDOR)/symfony/validator
+
+	rm -rf $(VENDOR)/symfony/yaml
+	ln -s $(SYSPHP)/Symfony/Component/Yaml $(VENDOR)/symfony/yaml
+
 	# Replace those embedded javascript libraries we can with the
 	# packaged systemwide version
 	rm -rf $(COREVENDOR)/ckeditor
