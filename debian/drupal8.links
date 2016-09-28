@@ -1,3 +1,3 @@
-etc/drupal/8/htaccess	usr/share/drupal8/.htaccess
-etc/drupal/8/sites	usr/share/drupal8/sites
-var/lib/drupal8/files	etc/drupal/8/sites/default/files
+etc/drupal/8/htaccess       usr/share/drupal8/.htaccess
+etc/drupal/8/sites          usr/share/drupal8/sites
+var/lib/drupal8/files       etc/drupal/8/sites/default/files
