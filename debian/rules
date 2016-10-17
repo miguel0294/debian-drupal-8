@@ -8,12 +8,6 @@ DESTDIR = $(CURDIR)/debian/$(PACKAGE)
 
 VENDOR = $(DESTDIR)/usr/share/drupal8/vendor
 COREVENDOR = $(DESTDIR)/usr/share/drupal8/core/assets/vendor
-# SYSPHP and SYSJS are at the same level (/usr/share), but they are
-# called from different levels within the Drupal sources; if vendor/
-# or core/vendor/ are to ever be moved, this is the place to update
-# (or to find a more elegant solution)
-SYSPHP = /usr/share/php
-SYSJS = ../../../../javascript
 
 %:
 	dh  $@
@@ -57,120 +51,44 @@ override_dh_install:
 	# shipped in vendor/; use Debian system-provided ones as much
 	# as possible.
 	#
-	# We first create the $(VENDOR)/symfony (and similar)
-	# directories in case we are working from the Git tree (it is
-	# shipped only via the tar.gz distributions)
-	[ -d $(VENDOR)/symfony ] || mkdir -p $(VENDOR)/symfony
-
-	rm -rf $(VENDOR)/symfony/class-loader
-	ln -s $(SYSPHP)/Symfony/Component/ClassLoader $(VENDOR)/symfony/class-loader
-
-	rm -rf $(VENDOR)/symfony/console
-	ln -s $(SYSPHP)/Symfony/Component/Console $(VENDOR)/symfony/console
-
-	rm -rf $(VENDOR)/symfony/dependency-injection
-	ln -s $(SYSPHP)/Symfony/Component/DependencyInjection $(VENDOR)/symfony/dependency-injection
-
-	rm -rf $(VENDOR)/symfony/event-dispatcher
-	ln -s $(SYSPHP)/Symfony/Component/EventDispatcher $(VENDOR)/symfony/event-dispatcher
-
-	rm -rf $(VENDOR)/symfony/polyfill-mbstring
-	ln -s $(SYSPHP)/Symfony/Polyfill/Mbstring $(VENDOR)/symfony/polyfill-mbstring
-
-	rm -rf $(VENDOR)/symfony/polyfill-apcu
-	ln -s $(SYSPHP)/Symfony/Polyfill/Apcu $(VENDOR)/symfony/polyfill-apcu
-
-	rm -rf $(VENDOR)/symfony/polyfill-iconv
-	ln -s $(SYSPHP)/Symfony/Polyfill/Iconv $(VENDOR)/symfony/polyfill-iconv
-
-	rm -rf $(VENDOR)/symfony/polyfill-php54
-	ln -s $(SYSPHP)/Symfony/Polyfill/Php54 $(VENDOR)/symfony/polyfill-php54
-
-	rm -rf $(VENDOR)/symfony/polyfill-php55
-	ln -s $(SYSPHP)/Symfony/Polyfill/Php55 $(VENDOR)/symfony/polyfill-php55
-
-	rm -rf $(VENDOR)/symfony/browser-kit
-	ln -s $(SYSPHP)/Symfony/Component/BrowserKit $(VENDOR)/symfony/browser-kit
-
-	rm -rf $(VENDOR)/symfony/css-selector/
-	ln -s $(SYSPHP)/Symfony/Component/CssSelector $(VENDOR)/symfony/css-selector
-
-	rm -rf $(VENDOR)/symfony/debug
-	ln -s $(SYSPHP)/Symfony/Component/Debug $(VENDOR)/symfony/debug
-
-	rm -rf $(VENDOR)/symfony/dependency-injection
-	ln -s $(SYSPHP)/Symfony/Component/DependencyInjection $(VENDOR)/symfony/dependency-injection
-
-	rm -rf $(VENDOR)/symfony/dom-crawler
-	ln -s $(SYSPHP)/Symfony/Component/DomCrawler $(VENDOR)/symfony/dom-crawler
-
-	rm -rf $(VENDOR)/symfony/event-dispatcher
-	ln -s $(SYSPHP)/Symfony/Component/EventDispatcher $(VENDOR)/symfony/event-dispatcher
-
-	rm -rf $(VENDOR)/symfony/http-foundation
-	ln -s $(SYSPHP)/Symfony/Component/HttpFoundation $(VENDOR)/symfony/http-foundation
-
-	rm -rf $(VENDOR)/symfony/http-kernel
-	ln -s $(SYSPHP)/Symfony/Component/HttpKernel $(VENDOR)/symfony/http-kernel
-
-	rm -rf $(VENDOR)/symfony/process
-	ln -s $(SYSPHP)/Symfony/Component/Process $(VENDOR)/symfony/process
-
-	rm -rf $(VENDOR)/symfony/routing
-	ln -s $(SYSPHP)/Symfony/Component/Routing $(VENDOR)/symfony/routing
-
-	rm -rf $(VENDOR)/symfony/serializer
-	ln -s $(SYSPHP)/Symfony/Component/Serializer $(VENDOR)/symfony/serializer
-
-	rm -rf $(VENDOR)/symfony/translation
-	ln -s $(SYSPHP)/Symfony/Component/Translation $(VENDOR)/symfony/translation
-
-	rm -rf $(VENDOR)/symfony/validator
-	ln -s $(SYSPHP)/Symfony/Component/Validator $(VENDOR)/symfony/validator
-
-	rm -rf $(VENDOR)/symfony/yaml
-	ln -s $(SYSPHP)/Symfony/Component/Yaml $(VENDOR)/symfony/yaml
-
-	# Twig Library
-	[ -d $(VENDOR)/twig ] || mkdir -p $(VENDOR)/twig/twig/lib/
-
-	ln -s $(SYSPHP)/Twig $(VENDOR)/twig/twig/lib/Twig
-
-	# Doctrine Libraries
-	[ -d $(VENDOR)/doctrine ] || mkdir -p $(VENDOR)/doctrine
-
-	mkdir -p $(VENDOR)/doctrine/annotations/lib/Doctrine/Common/
-	ln -s $(SYSPHP)/Doctrine/Common/Annotations $(VENDOR)/doctrine/annotations/lib/Doctrine/Common/Annotations
-
-	mkdir -p $(VENDOR)/doctrine/cache/lib/Doctrine/Common/
-	ln -s $(SYSPHP)/Doctrine/Common/Cache $(VENDOR)/doctrine/cache/lib/Doctrine/Common/Cache
-
-	mkdir -p $(VENDOR)/doctrine/collections/lib/Doctrine/Common/
-	ln -s $(SYSPHP)/Doctrine/Common/Collections $(VENDOR)/doctrine/collections/lib/Doctrine/Common/Collections
-
-	mkdir -p $(VENDOR)/doctrine/inflector/lib/Doctrine/Common/
-	ln -s $(SYSPHP)/Doctrine/Common/Inflector $(VENDOR)/doctrine/inflector/lib/Doctrine/Common/Inflector
-
-	mkdir -p $(VENDOR)/doctrine/instantiator/lib/Doctrine/Common/
-	ln -s $(SYSPHP)/Doctrine/Instantiator $(VENDOR)/doctrine/instantiator/lib/Doctrine/Common/Instantiator
-
-	mkdir -p $(VENDOR)/doctrine/lexer/lib/Doctrine/Common/
-	ln -s $(SYSPHP)/Doctrine/Common/Lexer $(VENDOR)/doctrine/lexer/lib/Doctrine/Common/Lexer
+	# All of the removed directories NEED to be replaced by a
+	# symlink to the directory where they are provided systemwide
+	# and declared in debian/drupal8.links. Of course, the
+	# corresponding dependency needs to be added to the binary
+	# package.
+	# rm -rf $(VENDOR)/symfony/class-loader \
+	# 	$(VENDOR)/symfony/console \
+	# 	$(VENDOR)/symfony/dependency-injection \
+	# 	$(VENDOR)/symfony/event-dispatcher \
+	# 	$(VENDOR)/symfony/polyfill-mbstring \
+	# 	$(VENDOR)/symfony/polyfill-apcu \
+	# 	$(VENDOR)/symfony/polyfill-iconv \
+	# 	$(VENDOR)/symfony/polyfill-php54 \
+	# 	$(VENDOR)/symfony/polyfill-php55 \
+	# 	$(VENDOR)/symfony/browser-kit \
+	# 	$(VENDOR)/symfony/css-selector/ \
+	# 	$(VENDOR)/symfony/debug \
+	# 	$(VENDOR)/symfony/dependency-injection \
+	# 	$(VENDOR)/symfony/dom-crawler \
+	# 	$(VENDOR)/symfony/event-dispatcher \
+	# 	$(VENDOR)/symfony/http-foundation \
+	# 	$(VENDOR)/symfony/http-kernel \
+	# 	$(VENDOR)/symfony/process \
+	# 	$(VENDOR)/symfony/routing \
+	# 	$(VENDOR)/symfony/serializer \
+	# 	$(VENDOR)/symfony/translation \
+	# 	$(VENDOR)/symfony/validator \
+	# 	$(VENDOR)/symfony/yaml
 
 	# Replace those embedded javascript libraries we can with the
-	# packaged systemwide version
-	rm -rf $(COREVENDOR)/ckeditor
-	ln -s $(SYSJS)/ckeditor $(COREVENDOR)/ckeditor
-
-	rm -rf $(COREVENDOR)/jquery.cookie
-	ln -s $(SYSJS)/jquery-cookie $(COREVENDOR)/jquery.cookie
-
-	rm -rf $(COREVENDOR)/underscore
-	ln -s $(SYSJS)/underscore $(COREVENDOR)/underscore
+	# packaged systemwide version. Also, provided in
+	# drupal8.links; binary package dependencies provided.
+	rm -rf $(COREVENDOR)/ckeditor \
+		$(COREVENDOR)/jquery.cookie \
+		$(COREVENDOR)/underscore
 
 	install -m640 .htaccess debian/drupal8/etc/drupal/8/htaccess
 
-	ln -s ../../drupal/8/apache2.conf $(DESTDIR)/etc/apache2/conf-available/drupal8.conf
 
 override_dh_installdocs:
 	dh_installdocs -XCVS -X.svn

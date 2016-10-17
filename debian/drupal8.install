@@ -7,34 +7,33 @@ themes          usr/share/drupal8
 robots.txt      usr/share/drupal8
 profiles        usr/share/drupal8
 sites           etc/drupal/8/
-
-vendor/autoload.php         usr/share/drupal8/vendor
-vendor/composer             usr/share/drupal8/vendor
-vendor/behat                usr/share/drupal8/vendor
-vendor/bin                  usr/share/drupal8/vendor
-vendor/easyrdf              usr/share/drupal8/vendor
-vendor/egulias              usr/share/drupal8/vendor
-vendor/fabpot               usr/share/drupal8/vendor
-vendor/guzzlehttp           usr/share/drupal8/vendor
-vendor/ircmaxell            usr/share/drupal8/vendor
-vendor/jcalderonzumba       usr/share/drupal8/vendor
-vendor/masterminds          usr/share/drupal8/vendor
-vendor/mikey179             usr/share/drupal8/vendor
-vendor/paragonie            usr/share/drupal8/vendor
-vendor/phpdocumentor        usr/share/drupal8/vendor
-vendor/phpspec              usr/share/drupal8/vendor
-vendor/phpunit              usr/share/drupal8/vendor
-vendor/psr                  usr/share/drupal8/vendor
-vendor/sebastian            usr/share/drupal8/vendor
-vendor/stack                usr/share/drupal8/vendor
-vendor/symfony-cmf          usr/share/drupal8/vendor
-vendor/wikimedia            usr/share/drupal8/vendor
-vendor/zendframework        usr/share/drupal8/vendor
-vendor/web.config           usr/share/drupal8/vendor
-vendor/symfony/psr-http-message-bridge/ usr/share/drupal8/vendor/symfony
-vendor/doctrine/common      usr/share/drupal8/vendor/doctrine/
-
-
+# 
+debian/vendor/autoload.php         usr/share/drupal8/vendor
+debian/vendor/composer             usr/share/drupal8/vendor
+debian/vendor/behat                usr/share/drupal8/vendor
+debian/vendor/bin                  usr/share/drupal8/vendor
+debian/vendor/easyrdf              usr/share/drupal8/vendor
+debian/vendor/egulias              usr/share/drupal8/vendor
+debian/vendor/fabpot               usr/share/drupal8/vendor
+debian/vendor/guzzlehttp           usr/share/drupal8/vendor
+debian/vendor/ircmaxell            usr/share/drupal8/vendor
+debian/vendor/jcalderonzumba       usr/share/drupal8/vendor
+debian/vendor/masterminds          usr/share/drupal8/vendor
+debian/vendor/mikey179             usr/share/drupal8/vendor
+debian/vendor/paragonie            usr/share/drupal8/vendor
+debian/vendor/phpdocumentor        usr/share/drupal8/vendor
+debian/vendor/phpspec              usr/share/drupal8/vendor
+debian/vendor/phpunit              usr/share/drupal8/vendor
+debian/vendor/psr                  usr/share/drupal8/vendor
+debian/vendor/sebastian            usr/share/drupal8/vendor
+debian/vendor/stack                usr/share/drupal8/vendor
+debian/vendor/symfony-cmf          usr/share/drupal8/vendor
+debian/vendor/wikimedia            usr/share/drupal8/vendor
+debian/vendor/zendframework        usr/share/drupal8/vendor
+debian/vendor/web.config           usr/share/drupal8/vendor
+debian/vendor/symfony/psr-http-message-bridge/ usr/share/drupal8/vendor/symfony
+debian/vendor/doctrine/common      usr/share/drupal8/vendor/doctrine/
+# 
 debian/etc/apache2.conf     etc/drupal/8
 debian/etc/settings.php     etc/drupal/8/sites/default
 debian/cron.sh              usr/share/drupal8/core/scripts

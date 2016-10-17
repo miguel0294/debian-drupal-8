@@ -10,7 +10,45 @@ Vcs-Browser: https://alioth.debian.org/anonscm/git/collab-maint/drupal8.git
 
 Package: drupal8
 Architecture: all
-Depends: ${misc:Depends}, apache2 | httpd, php, php-mysql, php7.0-opcache, php7.0-xml, php-sqlite3 | php-pgsql, php-gd, default-mta | mail-transport-agent, wwwconfig-common (>= 0.0.37), default-mysql-client | virtual-mysql-client | postgresql-client, dbconfig-common, curl, ckeditor, libjs-jquery-cookie (>= 11-3), libjs-underscore (>= 1.7.0~),  php-symfony-class-loader (>= 2.8), php-symfony-console (>= 2.8), php-symfony-dependency-injection (>= 2.8), php-symfony-event-dispatcher (>= 2.8), php-symfony-http-foundation (>= 2.8), php-symfony-http-kernel (>= 2.8), php-symfony-routing (>= 2.8), php-symfony-serializer (>= 2.8), php-symfony-translation (>= 2.8), php-symfony-validator (>= 2.8), php-symfony-process (>= 2.8), php-symfony-polyfill-iconv (>= 1.0), php-symfony-yaml (>= 2.8), php-twig (>= 1.23.1), php-doctrine-annotations (>= 1.2), php-composer-semver (>= 1.0), php-symfony-css-selector (>= 2.8), php-symfony-browser-kit (>= 2.8), php-doctrine-lexer (>= 1.0), php-doctrine-collections (>= 1.3), php-doctrine-cache (>= 1.4), php-doctrine-inflector (>= 1.0), php-doctrine-instantiator (>= 1.0)
+Depends: ${misc:Depends},
+   apache2 | httpd,
+   ckeditor,
+   curl,
+   dbconfig-common,
+   default-mta | mail-transport-agent,
+   default-mysql-client | virtual-mysql-client | postgresql-client,
+   libjs-jquery-cookie (>= 11-3),
+   libjs-underscore (>= 1.7.0~),
+   php,
+   php-composer-semver (>= 1.0),
+   php-doctrine-annotations (>= 1.2),
+   php-doctrine-cache (>= 1.4),
+   php-doctrine-collections (>= 1.3),
+   php-doctrine-inflector (>= 1.0),
+   php-doctrine-instantiator (>= 1.0),,
+   php-doctrine-lexer (>= 1.0),
+   php-gd,
+   php-mysql,
+   php-sqlite3 | php-pgsql,
+   php-symfony-browser-kit (>= 2.8),
+   php-symfony-class-loader (>= 2.8),
+   php-symfony-console (>= 2.8),
+   php-symfony-css-selector (>= 2.8),
+   php-symfony-dependency-injection (>= 2.8),
+   php-symfony-event-dispatcher (>= 2.8),
+   php-symfony-http-foundation (>= 2.8),
+   php-symfony-http-kernel (>= 2.8),
+   php-symfony-polyfill-iconv (>= 1.0),
+   php-symfony-process (>= 2.8),
+   php-symfony-routing (>= 2.8),
+   php-symfony-serializer (>= 2.8),
+   php-symfony-translation (>= 2.8),
+   php-symfony-validator (>= 2.8),
+   php-symfony-yaml (>= 2.8),
+   php-twig (>= 1.23.1),
+   php7.0-opcache,
+   php7.0-xml,
+   wwwconfig-common (>= 0.0.37)
 Recommends: default-mysql-server | postgresql, php-cli
 Description: fully-featured content management framework
  Drupal is a dynamic web site platform which allows an individual or

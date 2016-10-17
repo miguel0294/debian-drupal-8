@@ -2,6 +2,15 @@ etc/drupal/8/sites/default
 etc/apache2/conf-available
 var/lib/drupal8/files
 var/lib/drupal8/backups
+usr/share/drupal8
 usr/share/doc/drupal8
 usr/share/lintian/overrides
 usr/share/drupal8/misc/ui
+usr/share/drupal8/vendor/symfony
+usr/share/drupal8/vendor/twig/twig/lib
+usr/share/drupal8/vendor/doctrine/annotations/lib/Doctrine/Common/
+usr/share/drupal8/vendor/doctrine/cache/lib/Doctrine/Common/
+usr/share/drupal8/vendor/doctrine/collections/lib/Doctrine/Common/
+usr/share/drupal8/vendor/doctrine/inflector/lib/Doctrine/Common/
+usr/share/drupal8/vendor/doctrine/instantiator/lib/Doctrine/Common/
+usr/share/drupal8/vendor/doctrine/lexer/lib/Doctrine/Common/
