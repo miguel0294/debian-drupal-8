@@ -41,6 +41,10 @@ $dbs['sqlite'] = array(
                       'database' => '_DBC_BASEPATH_/_DBC_DBNAME_',
 );
 
+
+# SQLite needs a special case, since $DatabaseName must be a full pathname
+my $dbc_dbname = '_DBC_DBNAME_'; if ( "_DBC_DBTYPE_" eq "sqlite" ) { Set ($DatabaseName, '_DBC_BASEPATH_' . '/' . $dbc_dbname); } else { Set ($DatabaseName, $dbc_dbname); }
+
 $databases['default']['default'] = $dbs['_DBC_DBTYPE_'];
 
 ?>
